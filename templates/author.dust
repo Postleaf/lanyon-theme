@@ -1,0 +1,24 @@
+{! Use the default layout !}
+{>"default"/}
+
+{! This is the body of the page. It will get rendered where {+body/} appears in the layout. !}
+{<body}
+
+  {#author}
+    <div class="author-meta">
+      <h1 class="author-name">{name}</h1>
+      <div class="post-count">
+        {@plural count=pagination.totalItems none="No posts" one="1 post" many="% posts"/}
+      </div>
+      <div class="author-bio">{bio|markdownToHtml|s}</div>
+    </div>
+  {/author}
+
+  <hr>
+
+  {>"partials/loop"/}
+
+  {! Previous/next page links - displayed on every page !}
+  {>"partials/pagination"/}
+
+{/body}

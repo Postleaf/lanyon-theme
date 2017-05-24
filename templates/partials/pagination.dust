@@ -1,0 +1,13 @@
+<div class="pagination">
+  {?pagination.nextPage}
+    <a class="pagination-item older" href="{pagination.nextPageUrl}">Older</a>
+  {:else}
+    <span class="pagination-item older">Older</span>
+  {/pagination.nextPage}
+
+  {?pagination.prevPage}
+    <a class="pagination-item newer" href="{pagination.prevPageUrl}">Newer</a>
+  {:else}
+    <span class="pagination-item newer">Newer</span>
+  {/pagination.prevPage}
+</div>

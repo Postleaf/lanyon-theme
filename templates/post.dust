@@ -1,0 +1,75 @@
+{! Use the default layout !}
+{>"default"/}
+
+{! This is the body of the page. It will get rendered where {+body/} appears in the layout. !}
+{<body}
+
+  {#post}
+    <article class="{@postClass/}">
+      <header class="post-header">
+        <h1 class="post-title">{@title editable="true"/}</h1>
+        <section class="post-meta">
+          <time class="post-date" datetime="{@date date=publishedAt format="YYYY-MM-DD"/}">{@date date=publishedAt format="DD MMM, Y"/}</time>
+        </section>
+      </header>
+
+      <section class="post-content">
+        {@content editable="true"/}
+        {?tags}
+          Tags:
+          {#tags}
+            <a href="{@url type="tag" slug=slug/}">{name}</a>{@sep}, {/sep}
+          {/tags}
+        {/tags}
+      </section>
+
+      <footer class="post-footer">
+        {#author}
+          {?avatar}
+            <figure class="author-image">
+              <a class="img" href="{@url type="author" username=username/}" style="background-image: url({@dynamicImage src=avatar thumbnail="512"/})"><span class="hidden">{name}'s Picture</span></a>
+            </figure>
+          {/avatar}
+
+          <section class="author">
+            <h4><a href="{@url type="author" username=username/}">{name}</a></h4>
+
+            <div class="author-bio">
+              {?bio}
+                {bio|markdownToHtml|s}
+              {:else}
+                <p>Read <a href="{@url type="author" username=username/}">more posts</a> by this author.</p>
+              {/bio}
+            </div>
+
+            <div class="author-meta">
+              {?location}<span class="author-location">{location}</span>{/location}
+              {?website}<span class="author-link"><a href="{website}">{@formatUrl url=website hostname="true"/}</a></span>{/website}
+            </div>
+          </section>
+        {/author}
+      </footer>
+
+      {@getRelatedPosts count="3"}
+        {?posts}
+          <div class="related">
+            <h2>Related Posts</h2>
+            <ul class="related-posts">
+              {#posts}
+                <li>
+                  <h3>
+                    <a href="{@url type="post" slug=slug/}">
+                      {title}
+                    </a>
+                    <small>{@date date=publishedAt format="DD MMM, Y"/}</small>
+                  </h3>
+                </li>
+              {/posts}
+            </ul>
+          </div>
+        {/posts}
+      {/getRelatedPosts}
+    </article>
+  {/post}
+
+{/body}

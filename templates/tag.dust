@@ -1,0 +1,23 @@
+{! Use the default layout !}
+{>"default"/}
+
+{! This is the body of the page. It will get rendered where {+body/} appears in the layout. !}
+{<body}
+  {#tag}
+    <div class="tag-meta">
+      <h1 class="tag-name">Tagged “{name}”</h1>
+      <div class="post-count">
+        {@plural count=pagination.totalItems none="No posts" one="1 post" many="% posts"/}
+      </div>
+      <div class="tag-description">{description}</div>
+    </div>
+  {/tag}
+
+  <hr>
+
+  {>"partials/loop"/}
+
+  {! Previous/next page links - displayed on every page !}
+  {>"partials/pagination"/}
+
+{/body}

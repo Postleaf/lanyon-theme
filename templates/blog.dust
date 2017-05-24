@@ -1,0 +1,13 @@
+{! Use the default layout !}
+{>"default"/}
+
+{! This is the body of the page. It will get rendered where {+body/} appears in the layout. !}
+{<body}
+
+  {! Include the post loop !}
+  {>"partials/loop"/}
+
+  {! Include pagination !}
+  {>"partials/pagination"/}
+
+{/body}

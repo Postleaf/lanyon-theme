@@ -1,0 +1,17 @@
+{! Use the default layout !}
+{>"default"/}
+
+{! This is the body of the page. It will get rendered where {+body/} appears in the layout. !}
+{<body}
+
+  <article>
+
+    <h1 class="post-title">Not Found</h1>
+
+    <section class="post-content">
+      The page you requested could not be found.
+    </section>
+
+  </article>
+
+{/body}

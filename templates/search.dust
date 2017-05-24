@@ -1,0 +1,36 @@
+{! Use the default layout !}
+{>"default"/}
+
+{! This is the body of the page. It will get rendered where {+body/} appears in the layout. !}
+{<body}
+
+  <div class="search-meta">
+    <h1 class="search-query">
+      {?query}
+        Results for “{query}”
+      {:else}
+        Search
+      {/query}
+    </h1>
+    <div class="post-count">
+      {?query}
+        {@plural count=pagination.totalItems none="No posts" one="1 post" many="% posts"/}
+      {:else}
+        What are you looking for?
+      {/query}
+    </div>
+  </div>
+
+  <form class="search-form" action="{@url type="search"/}" method="GET">
+    <input type="search" name="s" placeholder="Search">
+    <button type="submit">Search</button>
+  </form>
+
+  <hr>
+
+  {>"partials/loop"/}
+
+  {! Previous/next page links - displayed on every page !}
+  {>"partials/pagination"/}
+
+{/body}

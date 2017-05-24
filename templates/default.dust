@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <link href="//gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>{meta.title}</title>
+    <meta name="description" content="{meta.description}" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{@url type="theme" path="assets/css/poole.css"/}">
+    <link rel="stylesheet" href="{@url type="theme" path="assets/css/lanyon.css"/}">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+    <!-- Icons -->
+    {?Settings.favicon}
+      <link rel="icon" href="{@dynamicImage src=Settings.favicon thumbnail="256"/}">
+    {/Settings.favicon}
+    <link rel="apple-touch-icon" sizes="144x144" href="{@dynamicImage src=Settings.favicon thumbnail="144"/}">
+
+    {! Postleaf outputs important style and metadata with this tag !}
+    {@head/}
+  </head>
+
+  <body class="{@bodyClass/}">
+    {>"partials/navigation"/}
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="{@url/}" title="Home">{Settings.title}</a>
+            <small>{Settings.tagline}</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+
+        {! The content of each template will be rendered here !}
+        {+body/}
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+    (function(document) {
+      var toggle = document.querySelector('.sidebar-toggle');
+      var sidebar = document.querySelector('#sidebar');
+      var checkbox = document.querySelector('#sidebar-checkbox');
+      var trigger = 'ontouchstart' in document ? 'touchstart' : 'click';
+
+      document.addEventListener(trigger, function(e) {
+        var target = e.target;
+
+        if(!checkbox.checked ||
+           sidebar.contains(target) ||
+           (target === checkbox || target === toggle)) return;
+
+        checkbox.checked = false;
+      }, false);
+    })(document);
+    </script>
+
+    {! Postleaf outputs important scripts and data with this tag !}
+    {@foot/}
+  </body>
+</html>
