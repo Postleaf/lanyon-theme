@@ -1,6 +1,6 @@
 # Lanyon
 
-A fork of the Lanyon Jekyll theme originally built by @mdo. Now available for Postleaf.
+A fork of the [Lanyon Jekyll theme](https://github.com/poole/lanyon) originally built by @mdo. Now available for Postleaf.
 
 ## Installation
 
