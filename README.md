@@ -12,6 +12,10 @@ A fork of the Lanyon Jekyll theme originally built by @mdo. Now available for Po
 2. From the Postleaf admin panel, go to Settings > Themes and select it from the list.
 3. Hit save.
 
+## Preview
+
+![Screenshot](http://postleaf.s3.amazonaws.com/website/images/lanyon_screenshot.png)
+
 ## Copyright & License
 
 Copyright (c) 2015 Daniel Jost - Released under the [MIT license](LICENSE.md).
