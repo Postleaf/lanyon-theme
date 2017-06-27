@@ -504,6 +504,7 @@ a.pagination-item:hover {
   margin: 3rem 0 0 0;
   padding: 2rem 0 0 0;
   border-top: #EBF2F6 1px solid;
+  clear: both;
 }
 
 .post-footer h4 {
